@@ -1,0 +1,72 @@
+@mixin dot($color)
+	&::after
+    content: ""
+    width: 25px
+    height: 25px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%,-50%)
+    background-color: $color
+    z-index: -1
+    border-radius: 50%
+
+.react-calendar
+  font-family: Georgia, 微軟正黑體
+  display: inline-block
+  vertical-align: top
+  padding: 10px
+  width: 100%
+  max-width: 260px
+  min-width: 260px
+  padding-bottom: 10px
+  border-radius: 2px
+  box-shadow: 0 0 10px 3px rgba(0,0,0,0.1)
+  text-align: center
+  p
+    margin: 10px 0
+  span
+    padding: 5px 0
+    cursor: pointer
+    flex: 1
+
+  span.toolbar-center
+    flex: 5
+  .prev, .next, .toolbar-center
+    border-radius: 5px
+  .toolbar-center:hover, .prev:hover, .next:hover
+    background-color: $gray
+
+  .weekdays, .toolbar
+    display: flex
+    justify-content: space-between
+  .weekdays span
+    cursor: unset
+
+  .day
+    display: inline-block
+    width: calc(100% / 7)
+  .notInThisMonth
+    color: $gray
+    cursor: unset
+  .selectable
+    position: relative
+    z-index: 1
+    &:hover
+      +dot($gray)
+  .selected
+    position: relative
+    z-index: 1
+    +dot($red)
+  .today
+    color: $red
+
+  .year
+    display: inline-block
+    padding: 15px 0
+    width: calc(100% / 4)
+
+  .month
+    display: inline-block
+    padding: 10px 0
+    width: calc(100% / 3)
