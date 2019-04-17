@@ -1,11 +1,11 @@
 module.exports = {
-    parser: 'postcss-scss',
-    plugins: {
-    'autoprefixer':{},
-    'cssnano':{},
+  parser: 'postcss-scss',
+  plugins: {
+    'autoprefixer': {},
+    'cssnano': {},
     'postcss-assets': {
-      loadPath: "images/"
+      loadPath: 'images/'
     }
     // 'postcss-sprites':{}
-    }
   }
+}
